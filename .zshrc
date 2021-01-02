@@ -152,4 +152,4 @@ export PATH="/usr/local/flutter/bin:/usr/local/sbin:$PATH"
 export PATH=$PATH:/Users/kowshik.roy/.nexustools
 export PATH="/usr/local/opt/go@1.14/bin:$PATH"
 export PATH="/usr/local/opt/awscli@1/bin:$PATH"
-alias config='/usr/bin/git --git-dir=/Users/kowshik.roy/.cfg/ --work-tree=/Users/kowshik.roy'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

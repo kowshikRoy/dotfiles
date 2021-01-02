@@ -126,9 +126,6 @@ alias tfaa="terraform apply --auto-approve"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export TERM=xterm-256color
 
-#export NVM_DIR="/Users/kowshik.roy/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey '^Z' fzf-cd-widget
 alias vim="nvim"
@@ -139,17 +136,7 @@ export KEYTIMEOUT=1
 export PATH="/usr/local/opt/binutils/bin:$PATH"
 alias "g++"="/usr/local/Cellar/gcc/10.2.0/bin/g++-10"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/kowshik.roy/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kowshik.roy/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/kowshik.roy/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kowshik.roy/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/kowshik.roy/.sdkman"
-[[ -s "/Users/kowshik.roy/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/kowshik.roy/.sdkman/bin/sdkman-init.sh"
 export PATH="/usr/local/flutter/bin:/usr/local/sbin:$PATH"
-export PATH=$PATH:/Users/kowshik.roy/.nexustools
-export PATH="/usr/local/opt/go@1.14/bin:$PATH"
+export PATH="/usr/local/opt/go@2.15/bin:$PATH"
 export PATH="/usr/local/opt/awscli@1/bin:$PATH"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/kowshik.roy/Desktop/own/terraform/terraform-learning-youtube/ec2-module-project-2/ec2_module_h3'
+let g:netrw_dirhist_1='/Users/kowshik.roy/Desktop/grabwork/infrastructure/terraform/tfe_workspaces/main_account_stg/abacus'
+let g:netrw_dirhist_0='/Users/kowshik.roy/Desktop/grabwork/infrastructure/scripts/terraform_service_upgrade'
+let g:netrw_dirhist_9='/Users/kowshik.roy/Desktop/own/terraform/terraform-learning-youtube/aws-course-project'
+let g:netrw_dirhist_8='/Users/kowshik.roy/Desktop/own/terraform/terraform-learning-youtube/ec2-module-project'
+let g:netrw_dirhist_7='/Users/kowshik.roy/Desktop/own/terraform/terraform-learning-youtube/ec2-module-project-2/sg_module'
+let g:netrw_dirhist_6='/Users/kowshik.roy/Desktop/own/terraform/terraform-learning-youtube/ec2-module-project-2/ec2_module'
+let g:netrw_dirhist_5='/Users/kowshik.roy/Desktop/own/terraform/terraform-learning-youtube'
+let g:netrw_dirhist_4='/Users/kowshik.roy/Desktop/own/terraform/terraform-learning-youtube/ec2-module-project-2/ec2_module'
+let g:netrw_dirhist_3='/Users/kowshik.roy/Desktop/own/terraform/terraform-learning-youtube/ec2-module-project-2'

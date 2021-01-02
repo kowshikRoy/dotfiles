@@ -10,7 +10,7 @@ fi
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/kowshik.roy/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 
@@ -87,7 +87,7 @@ plugins=(
     gradle-completion
     zsh-completions
 )
-source ~/.grab.sh
+if [ -f '~/.grab.sh' ]; then source ~/.grab.sh; fi
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH/oh-my-zsh.sh
 [[ -s `brew --prefix`/etc/autojump.sh  ]] && . `brew --prefix`/etc/autojump.sh

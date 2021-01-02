@@ -84,7 +84,6 @@ plugins=(
     colored-man-pages
     web-search
     git
-    gradle-completion
     zsh-completions
 )
 if [ -f '~/.grab.sh' ]; then source ~/.grab.sh; fi

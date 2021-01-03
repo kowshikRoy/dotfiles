@@ -1,5 +1,5 @@
-filetype indent plugin on " determine the type of a file based on its name
-syntax enable             " depends on filetype
+" filetype indent plugin on " determine the type of a file based on its name
+" syntax enable             " depends on filetype
 
 " show existing tab with 4 spaces width
 set tabstop=8
@@ -141,8 +141,6 @@ endif
 
 call plug#begin('~/.cache/nvim-plugins')
 
-
-" code
 Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
 Plug 'easymotion/vim-easymotion'
@@ -151,11 +149,11 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
-"Plug 'sheerun/vim-polyglot', { 'for': 'kotlin' }
-"Plug 'airblade/vim-rooter'
-"Plug 'fatih/vim-go'
+" Plug 'sheerun/vim-polyglot', { 'for': 'kotlin' }
+" Plug 'airblade/vim-rooter'
+" "Plug 'fatih/vim-go'
 Plug 'preservim/nerdcommenter'
-" themes
+" " themes
 Plug 'itchyny/lightline.vim'
 
 " Add plugins to &runtimepath
@@ -176,7 +174,6 @@ augroup END
 
 " ------------------------
 " neomake 
-call neomake#configure#automake('w')
 let g:neomake_open_list = 2
 let g:neomake_error_sign = { 'text': '✗', 'texthl': 'NeomakeErrorSign' }
 let g:neomake_warning_sign = { 'text': '‼', 'texthl': 'NeomakeWarningSign' }
@@ -185,6 +182,7 @@ func! Code(ops)
 endfunc
 " ------------------------
 " neomake makers: competitive programming 
+call neomake#configure#automake('w')
 let g:neomake_cpp_enabled_makers = []
 let s:neomake_cpp_maker_options = {
             \ 'common': [ '-DDEBUG', '-Wall', '-Wextra', '-pedantic', '-std=c++11', '-Wfloat-equal', '-Wconversion',
@@ -333,6 +331,7 @@ map <Leader>cc <Plug>NERDCommenterToggle
 "----------FZF----------
 
 let g:fzf_layout = { 'down': '~35%' }
+
 "----------vim-terraform
 "Allow vim-terraform to align settings automatically with Tabularize.
 

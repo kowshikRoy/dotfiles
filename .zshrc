@@ -85,9 +85,9 @@ plugins=(
     # web-search
     git
     zsh-autosuggestions
-    zsh-syntax-highlighting
+    # zsh-syntax-highlighting
 )
-if [ -f '~/.grab.sh' ]; then source ~/.grab.sh; fi
+[ -f ~/.grabrc ] && source ~/.grabrc
 source $ZSH/oh-my-zsh.sh
 [[ -s `brew --prefix`/etc/autojump.sh  ]] && . `brew --prefix`/etc/autojump.sh
 # User configuration
@@ -123,6 +123,7 @@ alias tfa="terraform apply"
 alias tfaa="terraform apply --auto-approve"
 alias vim="nvim"
 alias "g++"="/usr/local/Cellar/gcc/10.2.0/bin/g++-10"
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -139,4 +140,7 @@ export PATH="/usr/local/opt/binutils/bin:$PATH"
 export PATH="/usr/local/flutter/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/go@2.15/bin:$PATH"
 export PATH="/usr/local/opt/awscli@1/bin:$PATH"
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:/Users/kowshik.roy/Desktop/OSS/vagrant/exec"
+export PATH="$PATH:$HOME/.rvm/bin"

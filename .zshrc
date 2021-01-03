@@ -87,7 +87,6 @@ plugins=(
     zsh-completions
 )
 if [ -f '~/.grab.sh' ]; then source ~/.grab.sh; fi
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH/oh-my-zsh.sh
 [[ -s `brew --prefix`/etc/autojump.sh  ]] && . `brew --prefix`/etc/autojump.sh
 # User configuration
@@ -121,6 +120,8 @@ alias tf="terraform"
 alias tfp="terraform plan"
 alias tfa="terraform apply"
 alias tfaa="terraform apply --auto-approve"
+alias vim="nvim"
+alias "g++"="/usr/local/Cellar/gcc/10.2.0/bin/g++-10"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -128,13 +129,11 @@ export TERM=xterm-256color
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey '^Z' fzf-cd-widget
-alias vim="nvim"
 bindkey -v
 bindkey '^R' fzf-history-widget
 bindkey '^O' forward-word
 export KEYTIMEOUT=1
 export PATH="/usr/local/opt/binutils/bin:$PATH"
-alias "g++"="/usr/local/Cellar/gcc/10.2.0/bin/g++-10"
 
 export PATH="/usr/local/flutter/bin:/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/go@2.15/bin:$PATH"

@@ -147,11 +147,11 @@ Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/rainbow_parentheses.vim' " colorize parentheses
-Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'hashivim/vim-terraform', 
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+"Plug 'sheerun/vim-polyglot', { 'for': 'kotlin' }
 "Plug 'airblade/vim-rooter'
 "Plug 'fatih/vim-go'
 Plug 'preservim/nerdcommenter'

@@ -82,9 +82,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
     autojump
     colored-man-pages
-    web-search
+    # web-search
     git
-    zsh-completions
+    zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 if [ -f '~/.grab.sh' ]; then source ~/.grab.sh; fi
 source $ZSH/oh-my-zsh.sh

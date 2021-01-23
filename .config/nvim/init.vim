@@ -49,13 +49,11 @@ else
 endif
 
 set mouse=nv
-
+set termguicolors
 set path=.
 
 set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
-
-set termguicolors
 
 " ------------------------
 " Mapping: 
@@ -141,18 +139,21 @@ endif
 
 call plug#begin('~/.cache/nvim-plugins')
 
-Plug 'neomake/neomake'
-Plug 'sbdchd/neoformat'
+" Plug 'neomake/neomake'
+" Plug 'sbdchd/neoformat'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/rainbow_parentheses.vim' " colorize parentheses
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
-" Plug 'sheerun/vim-polyglot', { 'for': 'kotlin' }
+" Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+" Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'morhetz/gruvbox'
+" Commenting/uncommenting stuff
+Plug 'https://github.com/tpope/vim-commentary.git'
+" Plug 'sheerun/vim-polyglot'
 " Plug 'airblade/vim-rooter'
 " "Plug 'fatih/vim-go'
-Plug 'preservim/nerdcommenter'
 " " themes
 Plug 'itchyny/lightline.vim'
 
@@ -171,7 +172,13 @@ nnoremap <Leader>pi :PlugInstall<CR>
 augroup neoformat
     autocmd!
 augroup END
-
+" ------------------------
+"  Ruby
+let g:loaded_ruby_provider = 0 
+" ------------------------
+"  python
+let g:python_host_prog  = '/usr/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 " ------------------------
 " neomake 
 let g:neomake_open_list = 2
@@ -182,7 +189,9 @@ func! Code(ops)
 endfunc
 " ------------------------
 " neomake makers: competitive programming 
+if &filetype ==# 'cpp'  
 call neomake#configure#automake('w')
+endif
 let g:neomake_cpp_enabled_makers = []
 let s:neomake_cpp_maker_options = {
             \ 'common': [ '-DDEBUG', '-Wall', '-Wextra', '-pedantic', '-std=c++11', '-Wfloat-equal', '-Wconversion',
@@ -235,7 +244,7 @@ map  <Leader><Leader>w <Plug>(easymotion-bd-w)
 
 " ------------------------
 " theme 
-colorscheme challenger_deep
+colorscheme gruvbox
 hi link EasyMotionTarget EasyMotionTarget2FirstDefault
 
 " ------------------------
@@ -267,7 +276,7 @@ let g:lightline.enable = {
             \   'tabline':    0,
             \ }
 
-let g:lightline.colorscheme = 'challenger_deep'
+let g:lightline.colorscheme = 'gruvbox'
 let g:lightline.active = {
             \   'left':  [ [ 'mode', 'paste' ],
             \             [ 'filename', 'readonly', 'modified', ],

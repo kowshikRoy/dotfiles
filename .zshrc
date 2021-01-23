@@ -81,7 +81,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     autojump
-    colored-man-pages
+    # colored-man-pages
     # web-search
     git
     zsh-autosuggestions
@@ -89,6 +89,7 @@ plugins=(
 )
 [ -f ~/.grabrc ] && source ~/.grabrc
 source $ZSH/oh-my-zsh.sh
+[ -f $HOME/.rvm/scripts/rvm ] && source $HOME/
 [[ -s `brew --prefix`/etc/autojump.sh  ]] && . `brew --prefix`/etc/autojump.sh
 # User configuration
 
@@ -123,11 +124,10 @@ alias tfa="terraform apply"
 alias tfaa="terraform apply --auto-approve"
 alias vim="nvim"
 alias "g++"="/usr/local/Cellar/gcc/10.2.0/bin/g++-10"
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export TERM=xterm-256color
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey '^Z' fzf-cd-widget
@@ -142,5 +142,7 @@ export PATH="/usr/local/opt/go@2.15/bin:$PATH"
 export PATH="/usr/local/opt/awscli@1/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:/Users/kowshik.roy/Desktop/OSS/vagrant/exec"
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Created by `userpath` on 2021-01-12 15:40:11
+export PATH="$PATH:/Users/kowshik.roy/.local/bin"

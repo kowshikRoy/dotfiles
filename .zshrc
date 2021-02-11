@@ -123,7 +123,6 @@ alias tfp="terraform plan"
 alias tfa="terraform apply"
 alias tfaa="terraform apply --auto-approve"
 alias vim="nvim"
-alias "g++"="/usr/local/Cellar/gcc/10.2.0/bin/g++-10"
 alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

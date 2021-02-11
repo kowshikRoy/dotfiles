@@ -2,9 +2,9 @@
 " syntax enable             " depends on filetype
 
 " show existing tab with 4 spaces width
-set tabstop=8
+set tabstop=4
 " when indenting with '>', use 4 spaces width
-set shiftwidth=8
+set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 set hidden                " allow unsaved buffer to stay until vim closed
@@ -90,6 +90,7 @@ tnoremap <A-l> <C-\><C-n><C-w>l
 "noremap <silent> <F9> :Neomake! build<CR>
 noremap <silent> <leader>b :Neomake build<CR>
 noremap <silent> <leader>B :Neomake compile<CR>
+noremap <silent> <leader>f :Neomake lint<CR> :e<CR>
 "noremap <silent> <leader>r :! ./sane<CR>
 noremap <silent> <leader>c :!cat % <bar> pbcopy<CR><CR>
 noremap <silent> <leader>x :lclose<CR>
@@ -139,12 +140,12 @@ endif
 
 call plug#begin('~/.cache/nvim-plugins')
 
-" Plug 'neomake/neomake'
+Plug 'neomake/neomake'
 " Plug 'sbdchd/neoformat'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/rainbow_parentheses.vim' " colorize parentheses
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim', {'commit': '4145f53f3d343c389ff974b1f1a68eeb39fba18b'}
 Plug 'tpope/vim-fugitive'
 " Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 " Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
@@ -189,9 +190,7 @@ func! Code(ops)
 endfunc
 " ------------------------
 " neomake makers: competitive programming 
-if &filetype ==# 'cpp'  
 call neomake#configure#automake('w')
-endif
 let g:neomake_cpp_enabled_makers = []
 let s:neomake_cpp_maker_options = {
             \ 'common': [ '-DDEBUG', '-Wall', '-Wextra', '-pedantic', '-std=c++11', '-Wfloat-equal', '-Wconversion',
@@ -199,14 +198,18 @@ let s:neomake_cpp_maker_options = {
             \ }
 
 let g:neomake_cpp_compile_maker = {
-            \ 'exe': 'g++',
+            \ 'exe': 'g++-10',
             \ 'args': s:neomake_cpp_maker_options.common + ['-D_GLIBCXX_DEBUG', '-D_GLIBCXX_DEBUG_PEDANTIC', '-D_FORTIFY_SOURCE=2',
             \          '-fsanitize=address', '-fsanitize=undefined', '-fno-sanitize-recover', '-fstack-protector',
             \          '-O2', '-o', 'sane' ],
             \ }
 let g:neomake_cpp_build_maker = {
-            \ 'exe': 'g++',
+            \ 'exe': 'g++-10',
             \ 'args':  ['-std=c++11', '-o', 'sane' ],
+            \ }
+let g:neomake_cpp_lint_maker = {
+            \ 'exe': 'clang-format',
+            \ 'args': ['-i'],
             \ }
 
 " ------------------------

@@ -68,8 +68,6 @@ nnoremap <Leader>l :nohl<CR><C-l>
 nnoremap <Leader>s :e $MYVIMRC<CR>
 nnoremap <Leader>g :ls<CR>:b<Space>
 nnoremap <Leader>r :source $MYVIMRC<CR>
-" Delete characters inside "
-nnoremap q ci"
 
 
 nnoremap <C-h> <C-w>h
@@ -90,7 +88,7 @@ tnoremap <A-l> <C-\><C-n><C-w>l
 "noremap <silent> <F9> :Neomake! build<CR>
 noremap <silent> <leader>b :Neomake build<CR>
 noremap <silent> <leader>B :Neomake compile<CR>
-noremap <silent> <leader>f :Neomake lint<CR> :e<CR>
+noremap <silent> <leader>f :Neomake lint<CR> 
 "noremap <silent> <leader>r :! ./sane<CR>
 noremap <silent> <leader>c :!cat % <bar> pbcopy<CR><CR>
 noremap <silent> <leader>x :lclose<CR>
@@ -157,6 +155,7 @@ Plug 'https://github.com/tpope/vim-commentary.git'
 " "Plug 'fatih/vim-go'
 " " themes
 Plug 'itchyny/lightline.vim'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -169,16 +168,14 @@ nnoremap <Leader>pc :PlugClean<CR>
 nnoremap <Leader>pi :PlugInstall<CR>
 
 " ------------------------
-" neoformat 
-augroup neoformat
-    autocmd!
-augroup END
-" ------------------------
 "  Ruby
 let g:loaded_ruby_provider = 0 
+let g:loaded_python_provider = 0
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
 " ------------------------
 "  python
-let g:python_host_prog  = '/usr/bin/python'
+" let g:python_host_prog  = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 " ------------------------
 " neomake 
@@ -221,6 +218,12 @@ augroup END
 let g:rainbow#max_level = 16
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 let g:rainbow#blacklist = [233, 234]
+
+" -----------------------
+"  UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " ------------------------
 " vim-easymotion 

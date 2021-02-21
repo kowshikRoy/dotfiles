@@ -81,13 +81,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     autojump
-    # colored-man-pages
+    colored-man-pages
     # web-search
     git
     zsh-autosuggestions
     # zsh-syntax-highlighting
 )
 [ -f ~/.grabrc ] && source ~/.grabrc
+[ -f ~/.custom.sh ] && source ~/.custom.sh
 source $ZSH/oh-my-zsh.sh
 [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/
 [[ -s `brew --prefix`/etc/autojump.sh  ]] && . `brew --prefix`/etc/autojump.sh
@@ -145,3 +146,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Created by `userpath` on 2021-01-12 15:40:11
 export PATH="$PATH:/Users/kowshik.roy/.local/bin"
+
+# Created by `userpath` on 2021-02-14 14:44:07
+export PATH="$PATH:/Users/matrixcode/.local/bin"

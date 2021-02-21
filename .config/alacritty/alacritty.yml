@@ -113,8 +113,12 @@ font:
     # family: 'Cascadia Mono PL'
     # family: 'Fira Code'
     # family: 'Operator Mono'
-    # family: 'JebrainsMono'
+    # family: 'Jebrains Mono'
     family: Hack
+    # family: SF Mono
+    # family: Consolas
+    # family: Liberation Mono
+    # family: Iosevka
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -127,10 +131,11 @@ font:
     # value specified for the normal font.
     # family: 'DM Mono'
     # family: 'Cascadia Mono PL'
+    # family: Iosevka
     family: Hack
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: Medium
 
   # Italic font face
   #italic:
@@ -258,14 +263,14 @@ background_opacity: 1.0
 # Allow terminal applications to change Alacritty's window title.
 #dynamic_title: true
 
-#cursor:
+cursor:
   # Cursor style
   #
   # Values for `style`:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  #style: Block
+  style: Beam
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.

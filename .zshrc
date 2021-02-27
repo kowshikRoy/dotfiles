@@ -149,3 +149,7 @@ export PATH="$PATH:/Users/kowshik.roy/.local/bin"
 
 # Created by `userpath` on 2021-02-14 14:44:07
 export PATH="$PATH:/Users/matrixcode/.local/bin"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/matrixcode/.sdkman"
+[[ -s "/Users/matrixcode/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/matrixcode/.sdkman/bin/sdkman-init.sh"

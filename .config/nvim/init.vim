@@ -182,6 +182,7 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 let g:neomake_open_list = 2
 let g:neomake_error_sign = { 'text': '✗', 'texthl': 'NeomakeErrorSign' }
 let g:neomake_warning_sign = { 'text': '‼', 'texthl': 'NeomakeWarningSign' }
+let g:neomake_python_python_exe = 'python3'
 func! Code(ops)
     execute "Neomake! " . a:ops
 endfunc
@@ -196,13 +197,13 @@ let s:neomake_cpp_maker_options = {
 
 let g:neomake_cpp_compile_maker = {
             \ 'exe': 'g++-10',
-            \ 'args': s:neomake_cpp_maker_options.common + ['-D_GLIBCXX_DEBUG', '-D_GLIBCXX_DEBUG_PEDANTIC', '-D_FORTIFY_SOURCE=2',
+            \ 'args': s:neomake_cpp_maker_options.common + ['-DLOCAL', '-D_GLIBCXX_DEBUG', '-D_GLIBCXX_DEBUG_PEDANTIC', '-D_FORTIFY_SOURCE=2',
             \          '-fsanitize=address', '-fsanitize=undefined', '-fno-sanitize-recover', '-fstack-protector',
             \          '-O2', '-o', 'sane' ],
             \ }
 let g:neomake_cpp_build_maker = {
             \ 'exe': 'g++-10',
-            \ 'args':  ['-std=c++11', '-o', 'sane' ],
+            \ 'args':  ['-DLOCAL', '-std=c++11', '-o', 'sane' ],
             \ }
 let g:neomake_cpp_lint_maker = {
             \ 'exe': 'clang-format',
@@ -285,7 +286,7 @@ let g:lightline.enable = {
 let g:lightline.colorscheme = 'gruvbox'
 let g:lightline.active = {
             \   'left':  [ [ 'mode', 'paste' ],
-            \             [ 'filename', 'readonly', 'modified', ],
+            \             [ 'absolutepath', 'readonly', 'modified', ],
             \             [ 'fugitive',  'neomake' ] ],
             \   'right': [ [ 'lineinfo' ],
             \              [ 'percent' ],

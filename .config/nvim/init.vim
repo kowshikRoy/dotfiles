@@ -191,7 +191,7 @@ endfunc
 call neomake#configure#automake('w')
 let g:neomake_cpp_enabled_makers = []
 let s:neomake_cpp_maker_options = {
-            \ 'common': [ '-DDEBUG', '-Wall', '-Wextra', '-pedantic', '-std=c++11', '-Wfloat-equal', '-Wconversion',
+            \ 'common': [ '-DDEBUG', '-Wall', '-Wextra', '-pedantic', '-std=c++17', '-Wfloat-equal', '-Wconversion',
             \             '-Wlogical-op', '-Wshift-overflow=2', '-Wduplicated-cond', '-Wcast-qual', '-Wcast-align' ]
             \ }
 
@@ -199,11 +199,11 @@ let g:neomake_cpp_compile_maker = {
             \ 'exe': 'g++-10',
             \ 'args': s:neomake_cpp_maker_options.common + ['-DLOCAL', '-D_GLIBCXX_DEBUG', '-D_GLIBCXX_DEBUG_PEDANTIC', '-D_FORTIFY_SOURCE=2',
             \          '-fsanitize=address', '-fsanitize=undefined', '-fno-sanitize-recover', '-fstack-protector',
-            \          '-O2', '-o', 'sane' ],
+            \          '-O2', '-o', '%p:h/sane' ],
             \ }
 let g:neomake_cpp_build_maker = {
             \ 'exe': 'g++-10',
-            \ 'args':  ['-DLOCAL', '-std=c++11', '-o', 'sane' ],
+            \ 'args':  ['-DLOCAL', '-std=c++17', '-o', '%:p:h/sane' ],
             \ }
 let g:neomake_cpp_lint_maker = {
             \ 'exe': 'clang-format',

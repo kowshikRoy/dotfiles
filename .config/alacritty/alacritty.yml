@@ -114,9 +114,9 @@ font:
     # family: 'Fira Code'
     # family: 'Operator Mono'
     # family: 'Jebrains Mono'
-    family: Hack
+    # family: Hack
     # family: SF Mono
-    # family: Consolas
+    family: Consolas
     # family: Liberation Mono
     # family: Iosevka
 

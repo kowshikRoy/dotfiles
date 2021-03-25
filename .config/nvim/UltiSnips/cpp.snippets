@@ -8,11 +8,8 @@ snippet cpp "Template for competitive programming"
 #include<bits/stdc++.h>
 using namespace std;
  
-#define LL                      long long
-#define Ulong                   unsigned long long
-#define REP(i,n)                for(long long i = 0; i < n ; i++ )
-#define mp                      make_pair
-#define pb                      push_back
+#define ll                      long long
+#define REP(i,n)                for(int i = 0; i < (n) ; i++ )
 #define all(x)                  (x).begin(),(x).end()
 #define PI                      acos(-1.0)
 #define EPS                     1e-14
@@ -21,9 +18,6 @@ using namespace std;
 #define in(x)                   input(x)
 #define in2(x,y)                in(x),in(y)
 #define in3(x,y,z)              in(x),in2(y,z)
-#define lc                      ((n)<<1)
-#define rc                      ((n)<<1|1)
-#define db(x)                   cout << #x << " -> " << x << endl
 
 template<class T> inline void input(T &x) {
   register char c = getchar();x = 0;
@@ -45,8 +39,15 @@ template <class T> inline T modinverse(T a,T M){return bigmod(a,M-2,M);}
  
 /********************************************************/ 
 
-int main() {
+void solve(){
 	$2
+}
+int main() {
+	int t;
+	in(t);
+	while(t--) {
+		solve()
+	}
 	return 0;
 }
 endsnippet
@@ -58,16 +59,54 @@ snippet cpm "Minimalistic Template for competitive programming"
  * Task: `!p snip.rv = snip.basename or "name"` 
  */
 
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll        long long
+#define REP(i, n) for (int i = 0; i < (n); i++)
+
+void solve() {
+    $2
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int t;
+    cin >> t;
+    while (t--) { solve(); }
+    return 0;
+}
+
+endsnippet
+
+snippet usaco "Template for usaco"
+/**
+ * Author: Repon Kumar Roy
+ * Date: `date +%Y-%m-%d`
+ * Task: `!p snip.rv = snip.basename or "name"` 
+ */
+
 #include<bits/stdc++.h>
 using namespace std;
 
+#define ll                      long long
+#define REP(i,n)                for(int i = 0; i < (n) ; i++ )
+
+void solve(){
+	$2
+}
+
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	${0}
+#ifndef LOCAL
+	freopen("`!p snip.rv = snip.basename or "name"`.in", "r", stdin);
+	freopen("`!p snip.rv = snip.basename or "name"`.out", "w", stdout);
+#endif
+
+	ios::sync_with_stdio(false), cin.tie(0);
+	solve();
 }
 endsnippet
-
 snippet pragma "Pragma to make faster"
 #pragma GCC optimize ("Ofast")
 #pragma GCC target ("avx2")
@@ -75,6 +114,26 @@ snippet pragma "Pragma to make faster"
 endsnippet
 
 snippet debug "Debug template"
+#include <bits/stdc++.h>
+using namespace std;
+
+template<typename A, typename B> ostream& operator<<(ostream &os, const pair<A, B> &p) { return os << '(' << p.first << ", " << p.second << ')'; }
+template<typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type> ostream& operator<<(ostream &os, const T_container &v) { os << '{'; string sep; for (const T &x : v) os << sep << x, sep = ", "; return os << '}'; }
+ 
+void dbg_out() { cerr << "]" << endl; }
+template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr << H; if(sizeof...(T)) cerr << ", "; dbg_out(T...); }
+#ifdef LOCAL
+#define dbg(...) cerr << "Line(" << __LINE__ << ") -> [" << #__VA_ARGS__ << "]: [", dbg_out(__VA_ARGS__)
+#else
+#define dbg(...)
+#endif
+
+endsnippet
+
+snippet olddebug "Debug template"
+
+#include <bits/stdc++.h>
+using namespace std;
 
 using ll = long long;
 using ld = long double;
@@ -201,19 +260,187 @@ tcTUU> void DBG(const T& t, const U&... u) {
 	#define dbg(...) 0
 	#define chk(...) 0
 #endif
+endsnippet
+
+snippet ost "Order statistics tree"
+
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;
  
-// FILE I/O
-void setIn(str s) { freopen(s.c_str(),"r",stdin); }
-void setOut(str s) { freopen(s.c_str(),"w",stdout); }
-void unsyncIO() { cin.tie(0)->sync_with_stdio(0); }
-void setIO(str s = "") {
-	unsyncIO();
-	// cin.exceptions(cin.failbit); 
-	// throws exception when do smth illegal
-	// ex. try to read letter into int
-	if (sz(s)) { setIn(s+".in"), setOut(s+".out"); } // for USACO
-}
+// WARNING: functions as a set (doesn't allow duplicates); insert pairs instead if duplicates are needed.
+// Consider using splay_tree instead if constant factor is an issue (e.g., log^2 solutions), especially with duplicates.
+/**
+    * find_by_order(k) : iterator to the kth smallest integer counting from 0
+    * order_of_key(item):  number of items in a set that are strictly smaller than our item
+    X.insert(1);
+    X.insert(2);
+    X.insert(4);
+    X.insert(8);
+    X.insert(16);
+ 
+    cout<<*X.find_by_order(1)<<endl; // 2
+    cout<<*X.find_by_order(2)<<endl; // 4
+    cout<<*X.find_by_order(4)<<endl; // 16
+    cout<<(end(X)==X.find_by_order(6))<<endl; // true
+ 
+    cout<<X.order_of_key(-5)<<endl;  // 0
+    cout<<X.order_of_key(1)<<endl;   // 0
+    cout<<X.order_of_key(3)<<endl;   // 2
+    cout<<X.order_of_key(4)<<endl;   // 2
+    cout<<X.order_of_key(400)<<endl; // 5
+ **/
+template<typename T>
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 endsnippet
 
+snippet modint "modular integer"
+#include <bits/stdc++.h>
+using namespace std;
 
+template<const int &MOD>
+struct modint {
+    int val;
+ 
+    modint(int64_t v = 0) {
+        if (v < 0) v = v % MOD + MOD;
+        if (v >= MOD) v %= MOD;
+        val = int(v);
+    }
+ 
+    modint(uint64_t v) {
+        if (v >= MOD) v %= MOD;
+        val = int(v);
+    }
+ 
+    modint(int v) : modint(int64_t(v)) {}
+    modint(unsigned v) : modint(uint64_t(v)) {}
+ 
+    explicit operator int() const { return val; }
+    explicit operator unsigned() const { return val; }
+    explicit operator int64_t() const { return val; }
+    explicit operator uint64_t() const { return val; }
+    explicit operator double() const { return val; }
+    explicit operator long double() const { return val; }
+ 
+    modint& operator+=(const modint &other) {
+        val -= MOD - other.val;
+        if (val < 0) val += MOD;
+        return *this;
+    }
+ 
+    modint& operator-=(const modint &other) {
+        val -= other.val;
+        if (val < 0) val += MOD;
+        return *this;
+    }
+ 
+    static unsigned fast_mod(uint64_t x, unsigned m = MOD) {
+#if !defined(_WIN32) || defined(_WIN64)
+        return unsigned(x % m);
+#endif
+        // Optimized mod for Codeforces 32-bit machines.
+        // x must be less than 2^32 * m for this to work, so that x / m fits in an unsigned 32-bit int.
+        unsigned x_high = unsigned(x >> 32), x_low = unsigned(x);
+        unsigned quot, rem;
+        asm("divl %4\n"
+            : "=a" (quot), "=d" (rem)
+            : "d" (x_high), "a" (x_low), "r" (m));
+        return rem;
+    }
+ 
+    modint& operator*=(const modint &other) {
+        val = fast_mod(uint64_t(val) * other.val);
+        return *this;
+    }
+ 
+    modint& operator/=(const modint &other) {
+        return *this *= other.inv();
+    }
+ 
+    friend modint operator+(const modint &a, const modint &b) { return modint(a) += b; }
+    friend modint operator-(const modint &a, const modint &b) { return modint(a) -= b; }
+    friend modint operator*(const modint &a, const modint &b) { return modint(a) *= b; }
+    friend modint operator/(const modint &a, const modint &b) { return modint(a) /= b; }
+ 
+    modint& operator++() {
+        val = val == MOD - 1 ? 0 : val + 1;
+        return *this;
+    }
+ 
+    modint& operator--() {
+        val = val == 0 ? MOD - 1 : val - 1;
+        return *this;
+    }
+ 
+    modint operator++(int) { modint before = *this; ++*this; return before; }
+    modint operator--(int) { modint before = *this; --*this; return before; }
+ 
+    modint operator-() const {
+        return val == 0 ? 0 : MOD - val;
+    }
+ 
+    friend bool operator==(const modint &a, const modint &b) { return a.val == b.val; }
+    friend bool operator!=(const modint &a, const modint &b) { return a.val != b.val; }
+    friend bool operator<(const modint &a, const modint &b) { return a.val < b.val; }
+    friend bool operator>(const modint &a, const modint &b) { return a.val > b.val; }
+    friend bool operator<=(const modint &a, const modint &b) { return a.val <= b.val; }
+    friend bool operator>=(const modint &a, const modint &b) { return a.val >= b.val; }
+ 
+    static const int SAVE_INV = int(1e6) + 5;
+    static modint save_inv[SAVE_INV];
+ 
+    static void prepare_inv() {
+        // Make sure MOD is prime, which is necessary for the inverse algorithm below.
+        for (int64_t p = 2; p * p <= MOD; p += p % 2 + 1)
+            assert(MOD % p != 0);
+ 
+        save_inv[0] = 0;
+        save_inv[1] = 1;
+ 
+        for (int i = 2; i < SAVE_INV; i++)
+            save_inv[i] = save_inv[MOD % i] * (MOD - MOD / i);
+    }
+ 
+    modint inv() const {
+        if (save_inv[1] == 0)
+            prepare_inv();
+ 
+        if (val < SAVE_INV)
+            return save_inv[val];
+ 
+        modint product = 1;
+        int v = val;
+ 
+        while (v >= SAVE_INV) {
+            product *= MOD - MOD / v;
+            v = MOD % v;
+        }
+ 
+        return product * save_inv[v];
+    }
+ 
+    modint pow(int64_t p) const {
+        if (p < 0)
+            return inv().pow(-p);
+ 
+        modint a = *this, result = 1;
+ 
+        while (p > 0) {
+            if (p & 1)
+                result *= a;
+ 
+            p >>= 1;
+ 
+            if (p > 0)
+                a *= a;
+        }
+ 
+        return result;
+    }
+ 
+    friend ostream& operator<<(ostream &os, const modint &m) {
+        return os << m.val;
+    }
+};
+endsnippet

@@ -31,7 +31,6 @@ set tagcase=followscs
 "set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set completeopt+=noinsert,noselect
 set completeopt-=preview
-set shell=/usr/local/bin/zsh
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -196,13 +195,13 @@ let s:neomake_cpp_maker_options = {
             \ }
 
 let g:neomake_cpp_compile_maker = {
-            \ 'exe': 'g++-10',
+            \ 'exe': 'g++-11',
             \ 'args': s:neomake_cpp_maker_options.common + ['-DLOCAL', '-D_GLIBCXX_DEBUG', '-D_GLIBCXX_DEBUG_PEDANTIC', '-D_FORTIFY_SOURCE=2',
             \          '-fsanitize=address', '-fsanitize=undefined', '-fno-sanitize-recover', '-fstack-protector',
             \          '-O2', '-o', '%p:h/sane' ],
             \ }
 let g:neomake_cpp_build_maker = {
-            \ 'exe': 'g++-10',
+            \ 'exe': 'g++-11',
             \ 'args':  ['-DLOCAL', '-std=c++17', '-o', '%:p:h/sane' ],
             \ }
 let g:neomake_cpp_lint_maker = {

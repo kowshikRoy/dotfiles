@@ -1,0 +1,26 @@
+{
+  "template": [
+    {
+      "alias": "cpp",
+      "lang": "54",
+      "path": "/Users/matrixcode/code/codeforces/io.cpp",
+      "suffix": [
+        "cpp"
+      ],
+      "before_script": "g++-10 -DLOCAL -std=c++17 -o $%file%$ $%full%$",
+      "script": "./$%file%$",
+      "after_script": "rm $%file%$"
+    }
+  ],
+  "default": 0,
+  "gen_after_parse": false,
+  "host": "https://codeforces.com",
+  "proxy": "",
+  "folder_name": {
+    "acmsguru": "acmsguru",
+    "contest": "contest",
+    "group": "group",
+    "gym": "gym",
+    "root": "codeforces"
+  }
+}

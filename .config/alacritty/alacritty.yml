@@ -113,9 +113,9 @@ font:
     # family: 'Cascadia Mono PL'
     # family: 'Fira Code'
     # family: 'Operator Mono'
-    family: Ubuntu Mono
+    # family: Ubuntu Mono
     # family: 'Jebrains Mono'
-    # family: Hack
+    family: Hack
     # family: SF Mono
     # family: Consolas
     # family: Liberation Mono

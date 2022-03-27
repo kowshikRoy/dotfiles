@@ -125,6 +125,7 @@ alias tfa="terraform apply"
 alias tfaa="terraform apply --auto-approve"
 alias vim="nvim"
 alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias k="kubectl"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -153,3 +154,13 @@ export PATH="$PATH:/Users/matrixcode/.local/bin"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/matrixcode/.sdkman"
 [[ -s "/Users/matrixcode/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/matrixcode/.sdkman/bin/sdkman-init.sh"
+
+
+# history sync
+# Avoid duplicates
+HISTCONTROL=ignoredups:erasedups
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+
+# After each command, append to the history file and reread it
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
